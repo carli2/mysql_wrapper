@@ -1,4 +1,7 @@
 <?php
+	define ('MYSQL_ASSOC', MYSQLI_ASSOC);
+	define ('MYSQL_NUM', MYSQLI_NUM);
+	define ('MYSQL_BOTH', MYSQLI_BOTH);
 	$mysqli = null;
 	function mysql_connect($a, $b, $c, $d = null) {
 		global $mysqli;
@@ -18,10 +21,16 @@
 		return ($db?:$mysqli)->insert_id;
 	}
 	function mysql_fetch_array($r, $rt) {
-		return $r->fetch_array(rt);
+		return $r->fetch_array($rt);
+	}
+	function mysql_numrows($r) {
+		return $r->num_rows;
 	}
 	function mysql_num_rows($r) {
-		return $r->num_rows();
+		return $r->num_rows;
+	}
+	function mysql_free_result($r) {
+		return $r->free();
 	}
 	function mysql_close($db = null) {
 		global $mysqli;
