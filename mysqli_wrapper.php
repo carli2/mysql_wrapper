@@ -36,7 +36,7 @@
 		global $mysqli;
 		return ($db?:$mysqli)->close();
 	}
-	function mysql_real_escape_string($s, $db) {
+	function mysql_real_escape_string($s, $db = null) {
 		global $mysqli;
 		return ($db?:$mysqli)->real_escape_string($s);
 	}
