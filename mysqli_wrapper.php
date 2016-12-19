@@ -47,4 +47,8 @@
 		global $mysqli;
 		return ($db?:$mysqli)->error();
 	}
+	function mysql_result($r, $row, $field = 0) {
+		$r->field_seek($row);
+		return $r->fetch_array()[$field];
+	}
 ?>
