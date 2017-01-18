@@ -43,6 +43,19 @@
 	function mysql_fetch_assoc($r) {
 		return $r->fetch_assoc();
 	}
+	function mysql_fetch_row($r) {
+		return $r->fetch_row();
+	}
+	function mysql_num_fields($r) {
+		return $r->field_count;
+	}
+	function mysql_field_name($r, $offset) {
+		return $r->fetch_field_direct($offset)->name;
+	}
+	function mysql_affected_rows($db = null) {
+		global $mysqli;
+		return ($db?:$mysqli)->affected_rows;
+	}
 	function mysql_error($db = null) {
 		global $mysqli;
 		return ($db?:$mysqli)->error();
