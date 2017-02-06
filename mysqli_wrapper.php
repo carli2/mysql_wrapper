@@ -58,7 +58,7 @@
 	}
 	function mysql_error($db = null) {
 		global $mysqli;
-		return ($db?:$mysqli)->error();
+		return ($db?:$mysqli)->error;
 	}
 	function mysql_result($r, $row, $field = 0) {
 		$r->field_seek($row);
